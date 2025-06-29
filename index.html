@@ -84,54 +84,57 @@
             <h2>Our Work</h2>
             <div class="portfolio-grid">
                 <a href="project1.html" class="portfolio-item">
-                <div class="portfolio-item">
-                    <div class="portfolio-image"><img src="Project01.jpg" alt="Advista Logo Design" srcset=""
-                            height="250px"></div>
-                    <div class="portfolio-content">
-                        <h3>Schematiq</h3>
-                        <p>A comprehensive mobile application design focusing on user experience and modern aesthetics.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">UI/UX</span>
-                            <span class="tag">Mobile</span>
-                            <span class="tag">Branding</span>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image"><img src="Project01.jpg" alt="Advista Logo Design" srcset=""
+                                height="250px"></div>
+                        <div class="portfolio-content">
+                            <h3>Schematiq</h3>
+                            <p>A comprehensive mobile application design focusing on user experience and modern
+                                aesthetics.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">UI/UX</span>
+                                <span class="tag">Mobile</span>
+                                <span class="tag">Branding</span>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </a>
-        
+
                 <a href="project2.html" class="portfolio-item">
-                <div class="portfolio-item">
-                    <div class="portfolio-image"><img src="Project01.jpg" alt="Advista Logo Design" srcset=""
-                            height="250px"></div>
-                    <div class="portfolio-content">
-                        <h3>Schematiq</h3>
-                        <p>A comprehensive mobile application design focusing on user experience and modern aesthetics.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">UI/UX</span>
-                            <span class="tag">Mobile</span>
-                            <span class="tag">Branding</span>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image"><img src="Project01.jpg" alt="Advista Logo Design" srcset=""
+                                height="250px"></div>
+                        <div class="portfolio-content">
+                            <h3>Schematiq</h3>
+                            <p>A comprehensive mobile application design focusing on user experience and modern
+                                aesthetics.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">UI/UX</span>
+                                <span class="tag">Mobile</span>
+                                <span class="tag">Branding</span>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </a>
 
                 <a href="project3.html" class="portfolio-item">
-                <div class="portfolio-item">
-                    <div class="portfolio-image"><img src="Project01.jpg" alt="Advista Logo Design" srcset=""
-                            height="250px"></div>
-                    <div class="portfolio-content">
-                        <h3>Schematiq</h3>
-                        <p>A comprehensive mobile application design focusing on user experience and modern aesthetics.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">UI/UX</span>
-                            <span class="tag">Mobile</span>
-                            <span class="tag">Branding</span>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image"><img src="Project01.jpg" alt="Advista Logo Design" srcset=""
+                                height="250px"></div>
+                        <div class="portfolio-content">
+                            <h3>Schematiq</h3>
+                            <p>A comprehensive mobile application design focusing on user experience and modern
+                                aesthetics.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">UI/UX</span>
+                                <span class="tag">Mobile</span>
+                                <span class="tag">Branding</span>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </a>
             </div>
         </div>
@@ -142,7 +145,8 @@
         <h2 class="service-title">What we do</h2>
         <div class="services-grid">
             <div class="service-item">
-                <div class="image-wrapper"><img src="service1.png" alt="Service 1" class="service-image" height="250px"></div>
+                <div class="image-wrapper"><img src="service1.png" alt="Service 1" class="service-image" height="250px">
+                </div>
                 <div class="service-content">
                     <h3>UI/UX Design</h3>
                     <p>We design seamless journeys and intuitive interfaces that feel effortless and perform with
@@ -152,7 +156,8 @@
                 </div>
             </div>
             <div class="service-item">
-                <div class="image-wrapper"><img src="service2.png" alt="Service 2" class="service-image" height="250px"></div>
+                <div class="image-wrapper"><img src="service2.png" alt="Service 2" class="service-image" height="250px">
+                </div>
                 <div class="service-content">
                     <h3>Branding & Logo Design</h3>
                     <p>We shape brands that stand out and stay remembered.
@@ -161,7 +166,8 @@
                 </div>
             </div>
             <div class="service-item">
-                <div class="image-wrapper"><img src="service3.png" alt="Service 3" class="service-image" height="250px"></div>
+                <div class="image-wrapper"><img src="service3.png" alt="Service 3" class="service-image" height="250px">
+                </div>
                 <div class="service-content">
                     <h3>Creative Direction / Design Systems</h3>
                     <p>We build design systems that grow with you.
@@ -206,16 +212,34 @@
 
     <script src="script.js"></script>
     <script>
-        const text = "Undo the Noise. Design What Matters.";
-        const el = document.getElementById("typing-text");
+    const tabletBreakpoint = 992; // Disable typing on ≤ 992px
+    const isSmallScreen = window.innerWidth <= tabletBreakpoint;
 
+    const text = isSmallScreen
+        ? 'Undo the Noise.<span class="line-break">Design What Matters.</span>'
+        : 'Undo the Noise. Design What Matters.';
+
+    const el = document.getElementById("typing-text");
+
+    if (isSmallScreen) {
+        // No typing animation on tablet or mobile
+        el.classList.remove('typing');
+        el.innerHTML = text;
+    } else {
+        // Typing animation for desktop only
         let i = 0;
         const speed = 150;
 
         function typeWriter() {
             if (i < text.length) {
-                el.innerHTML += text.charAt(i);
-                i++;
+                if (text.substring(i, i + 6) === "<span") {
+                    const spanEnd = text.indexOf("</span>", i) + 7;
+                    el.innerHTML += text.substring(i, spanEnd);
+                    i = spanEnd;
+                } else {
+                    el.innerHTML += text.charAt(i);
+                    i++;
+                }
                 setTimeout(typeWriter, speed);
             } else {
                 el.classList.remove('typing');
@@ -224,7 +248,10 @@
 
         el.classList.add('typing');
         typeWriter();
-    </script>
+    }
+</script>
+
+
 
 </body>
 

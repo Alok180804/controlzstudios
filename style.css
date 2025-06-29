@@ -221,7 +221,7 @@ body {
 }
 
 .about-container {
-    max-width: 1200px;
+    max-width: 90vw;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -268,10 +268,11 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .about-container {
         flex-direction: column;
         text-align: center;
+        height: auto;
     }
 
     .about-text h2 {
@@ -283,9 +284,9 @@ body {
     }
 
     .about-logo img {
-        max-height: 160px;
+        filter: invert(100%) brightness(95%);
     }
-}
+} */
 
 /* Portfolio Section */
 .portfolio {
@@ -330,7 +331,8 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
 }
-.portfolio h2{
+
+.portfolio h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     font-family: "montserrat", sans-serif;
@@ -416,7 +418,8 @@ body {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 12px; /* Smaller radius for inside rounding */
+    border-radius: 12px;
+    /* Smaller radius for inside rounding */
     display: block;
 }
 
@@ -434,7 +437,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.services h2{
+.services h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     font-family: "montserrat", sans-serif;
@@ -598,19 +601,112 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+
+/* ===============================
+   Breakpoint 1: Tablets (<= 992px)
+================================== */
+@media (max-width: 992px) {
+    .nav-container {
+        padding: 0 1.5rem;
+    }
+
+    .nav-menu {
+        gap: 1.2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text p,
+    .hero-subtext {
+        font-size: 18px;
+    }
+
+   #typing-text {
+    white-space: normal;
+    border: none !important;
+    animation: none !important;
+    max-width: 90vw;
+    font-size: 32px;
+  }
+
+
+  /* .about-container {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+  } */
+   .about-container{
+    text-align: center;
+   }
+    .about-logo {
+        color: white;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .service-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .glass{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 10px;;
+    }
+
+    .footer-header {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .footer-title {
+        font-size: 1.6rem;
+    }
+
+    .footer-subtext {
+        font-size: 0.95rem;
+    }
+}
+
+/* ===============================
+   Breakpoint 2: Mobile (<= 576px)
+================================== */
+@media (max-width: 576px) {
+    .nav-container {
+        padding: 0 1rem;
+    }
+
     .menu-toggle {
         display: flex;
     }
 
     .nav-menu {
         position: fixed;
-        top: 70px;
+        top: 64px;
         left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: white;
         flex-direction: column;
+        background: #fff;
+        width: 100%;
+        height: calc(100vh - 64px);
         justify-content: flex-start;
         align-items: center;
         padding-top: 2rem;
@@ -621,50 +717,98 @@ body {
         left: 0;
     }
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero .subtitle {
-        font-size: 1.2rem;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .section-title {
+    .hero-text h1 {
         font-size: 2rem;
     }
 
-    .container {
-        padding: 0 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 2rem;
+    .hero-text p,
+    .hero-subtext {
+        font-size: 14px;
+        min-width: 100%;
     }
 
-    .hero .subtitle {
-        font-size: 1rem;
+    #typing-text {
+        border: none !important;
+        animation: none !important;
+        white-space: normal;
+        max-width: 90vw;
     }
 
-    .portfolio-grid {
-        grid-template-columns: 1fr;
+    .cta-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
     }
 
+    .about-text h2 {
+        font-size: 1.6rem;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+    }
+
+    .portfolio-grid,
     .services-grid {
         grid-template-columns: 1fr;
     }
+
+    .portfolio-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .portfolio-content p {
+        font-size: 0.9rem;
+    }
+
+    .service-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .service-content p {
+        font-size: 0.9rem;
+    }
+
+    .glass{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 10px;;
+    }
+    .footer-logo {
+        height: 80px;
+        
+    }
+
+.footer-header{
+    align-items: center;
+    justify-content: center;
 }
+
+    .footer-tagline p {
+        font-size: 1rem;
+    }
+
+    .footer-title {
+        font-size: 1.4rem;
+    }
+
+    .footer-subtext {
+        font-size: 0.9rem;
+    }
+
+    .cta-button-footer {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .social-icons a {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+}
+
 
 /* Smooth scrolling */
 html {
