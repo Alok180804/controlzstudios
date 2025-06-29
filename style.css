@@ -267,26 +267,14 @@ body {
     object-fit: contain;
 }
 
-/* Responsive */
-/* @media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-    }
-
-    .about-text h2 {
-        font-size: 2rem;
-    }
-
-    .about-text p {
-        font-size: 1rem;
-    }
-
-    .about-logo img {
-        filter: invert(100%) brightness(95%);
-    }
-} */
+.mainprojectimage{
+    background-color: #f8f8f8;
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center;
+}
 
 /* Portfolio Section */
 .portfolio {
