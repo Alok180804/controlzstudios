@@ -26,7 +26,7 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
+    width: 100vw;
     height: 64px;
     margin: 0 auto;
     display: flex;
@@ -596,7 +596,7 @@ body {
 ================================== */
 @media (max-width: 992px) {
     .nav-container {
-        padding: 0 1.5rem;
+        padding: 0px 20px;
     }
 
     .nav-menu {
@@ -620,12 +620,6 @@ body {
     font-size: 32px;
   }
 
-
-  /* .about-container {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-  } */
    .about-container{
     text-align: center;
    }
@@ -680,7 +674,7 @@ body {
 ================================== */
 @media (max-width: 576px) {
     .nav-container {
-        padding: 0 1rem;
+        padding: 0px 20px;
     }
 
     .menu-toggle {
