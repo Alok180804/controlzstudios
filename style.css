@@ -262,9 +262,7 @@ body {
 }
 
 .about-logo img {
-    max-width: 100%;
-    height: auto;
-    max-height: 200px;
+    height: 45vh;
     object-fit: contain;
 }
 
