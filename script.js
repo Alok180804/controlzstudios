@@ -196,3 +196,246 @@ document.head.appendChild(style);
 
 // Initialize floating elements
 setTimeout(createFloatingElements, 3000);
+
+// -------------------------------------------------
+// Blog Section JavaScript - Add to script.js
+
+// // Blog card interactions
+// document.addEventListener('DOMContentLoaded', function() {
+//     const blogCards = document.querySelectorAll('.blog-card');
+    
+//     blogCards.forEach(card => {
+//         // Add smooth hover animations
+//         card.addEventListener('mouseenter', function() {
+//             this.style.transform = 'translateY(-8px) scale(1.02)';
+            
+//             // Add subtle rotation effect
+//             const image = this.querySelector('.blog-image img');
+//             if (image) {
+//                 image.style.transform = 'scale(1.05) rotate(0.5deg)';
+//             }
+            
+//             // Animate category badge
+//             const category = this.querySelector('.blog-category');
+//             if (category) {
+//                 category.style.transform = 'scale(1.05)';
+//                 category.style.background = 'rgba(0,0,0,0.9)';
+//             }
+            
+//             // Animate tags
+//             const tags = this.querySelectorAll('.blog-tags .tag');
+//             tags.forEach((tag, index) => {
+//                 setTimeout(() => {
+//                     tag.style.transform = 'translateY(-2px)';
+//                     tag.style.background = '#e0e0e0';
+//                 }, index * 50);
+//             });
+//         });
+        
+//         card.addEventListener('mouseleave', function() {
+//             this.style.transform = 'translateY(0) scale(1)';
+            
+//             // Reset image
+//             const image = this.querySelector('.blog-image img');
+//             if (image) {
+//                 image.style.transform = 'scale(1) rotate(0deg)';
+//             }
+            
+//             // Reset category badge
+//             const category = this.querySelector('.blog-category');
+//             if (category) {
+//                 category.style.transform = 'scale(1)';
+//                 category.style.background = 'rgba(0,0,0,0.8)';
+//             }
+            
+//             // Reset tags
+//             const tags = this.querySelectorAll('.blog-tags .tag');
+//             tags.forEach(tag => {
+//                 tag.style.transform = 'translateY(0)';
+//                 tag.style.background = '#f0f0f0';
+//             });
+//         });
+        
+//         // Add click animation
+//         card.addEventListener('click', function(e) {
+//             // Create ripple effect
+//             const ripple = document.createElement('div');
+//             const rect = this.getBoundingClientRect();
+//             const size = Math.max(rect.width, rect.height);
+            
+//             ripple.style.width = ripple.style.height = size + 'px';
+//             ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+//             ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+//             ripple.style.position = 'absolute';
+//             ripple.style.borderRadius = '50%';
+//             ripple.style.background = 'rgba(0,0,0,0.1)';
+//             ripple.style.transform = 'scale(0)';
+//             ripple.style.animation = 'ripple 0.6s linear';
+//             ripple.style.pointerEvents = 'none';
+            
+//             this.style.position = 'relative';
+//             this.appendChild(ripple);
+            
+//             setTimeout(() => {
+//                 ripple.remove();
+//             }, 600);
+//         });
+//     });
+    
+//     // Animate blog cards on scroll
+//     const observerOptions = {
+//         threshold: 0.1,
+//         rootMargin: '0px 0px -50px 0px'
+//     };
+    
+//     const blogObserver = new IntersectionObserver(function(entries) {
+//         entries.forEach((entry, index) => {
+//             if (entry.isIntersecting) {
+//                 setTimeout(() => {
+//                     entry.target.style.opacity = '1';
+//                     entry.target.style.transform = 'translateY(0)';
+//                 }, index * 100);
+//             }
+//         });
+//     }, observerOptions);
+    
+//     // Observe blog cards for scroll animation
+//     blogCards.forEach(card => {
+//         card.style.opacity = '0';
+//         card.style.transform = 'translateY(30px)';
+//         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+//         blogObserver.observe(card);
+//     });
+    
+//     // View all button hover effect
+//     const viewAllBtn = document.querySelector('.view-all-btn');
+//     if (viewAllBtn) {
+//         viewAllBtn.addEventListener('mouseenter', function() {
+//             this.style.transform = 'translateY(-2px) scale(1.05)';
+//         });
+        
+//         viewAllBtn.addEventListener('mouseleave', function() {
+//             this.style.transform = 'translateY(0) scale(1)';
+//         });
+//     }
+// });
+
+// // Add ripple animation keyframes
+// const rippleStyle = document.createElement('style');
+// rippleStyle.textContent = `
+//     @keyframes ripple {
+//         to {
+//             transform: scale(4);
+//             opacity: 0;
+//         }
+//     }
+// `;
+// document.head.appendChild(rippleStyle);
+
+// Blog Slider Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const blogGrid = document.querySelector('.blog-grid');
+    const blogContainer = document.querySelector('.blog-container');
+    
+    if (!blogGrid) return;
+    
+    const blogItems = blogGrid.querySelectorAll('.blog-item, .portfolio-item');
+    
+    // Only add navigation if there are more than 3 items
+    if (blogItems.length > 3) {
+        createBlogNavigation();
+    }
+    
+    function createBlogNavigation() {
+        // Create navigation container
+        const navContainer = document.createElement('div');
+        navContainer.className = 'blog-nav';
+        
+        // Create previous button
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'blog-nav-btn';
+        prevBtn.innerHTML = '‹';
+        prevBtn.setAttribute('aria-label', 'Previous blogs');
+        
+        // Create next button
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'blog-nav-btn';
+        nextBtn.innerHTML = '›';
+        nextBtn.setAttribute('aria-label', 'Next blogs');
+        
+        // Add buttons to navigation
+        navContainer.appendChild(prevBtn);
+        navContainer.appendChild(nextBtn);
+        
+        // Add navigation to blog container
+        blogContainer.appendChild(navContainer);
+        
+        // Scroll functionality
+        const scrollAmount = 340; // Card width + gap
+        
+        prevBtn.addEventListener('click', function() {
+            blogGrid.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        nextBtn.addEventListener('click', function() {
+            blogGrid.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Update button states based on scroll position
+        function updateButtonStates() {
+            const scrollLeft = blogGrid.scrollLeft;
+            const maxScroll = blogGrid.scrollWidth - blogGrid.clientWidth;
+            
+            prevBtn.disabled = scrollLeft <= 0;
+            nextBtn.disabled = scrollLeft >= maxScroll - 1; // -1 for rounding issues
+        }
+        
+        // Initial button state
+        updateButtonStates();
+        
+        // Update button states on scroll
+        blogGrid.addEventListener('scroll', updateButtonStates);
+        
+        // Handle touch/swipe on mobile
+        let startX = 0;
+        let scrollStart = 0;
+        
+        blogGrid.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].pageX;
+            scrollStart = blogGrid.scrollLeft;
+        });
+        
+        blogGrid.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+            const x = e.touches[0].pageX;
+            const walk = (startX - x) * 1; // Scroll speed multiplier
+            blogGrid.scrollLeft = scrollStart + walk;
+        });
+    }
+    
+    // Keyboard navigation
+    blogGrid.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            blogGrid.scrollBy({
+                left: -340,
+                behavior: 'smooth'
+            });
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            blogGrid.scrollBy({
+                left: 340,
+                behavior: 'smooth'
+            });
+        }
+    });
+    
+    // Make the grid focusable for keyboard navigation
+    blogGrid.setAttribute('tabindex', '0');
+});
