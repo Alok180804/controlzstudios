@@ -433,6 +433,10 @@ body {
     color: rgb(237, 236, 236);
 }
 
+.text{
+    padding: 0px 16px;
+}
+
 .service-content p {
     color: #ccc;
     font-size: 1rem;

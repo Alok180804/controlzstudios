@@ -148,31 +148,43 @@
                 <div class="image-wrapper"><img src="service1.png" alt="Service 1" class="service-image" height="250px">
                 </div>
                 <div class="service-content">
-                    <h3>UI/UX Design</h3>
-                    <p>We design seamless journeys and intuitive interfaces that feel effortless and perform with
-                        purpose.
-                        From wireframe to final pixel, every touchpoint is crafted to guide users smoothly, reduce
-                        friction, and turn clicks into meaningful experiences.</p>
+                    <h3>Logo Design & Branding</h3>
+                    <ul class="text">
+                        <li><strong>Brand Strategy</strong> – Defining positioning, personality & purpose.</li>
+                        <li><strong>Visual Identity Design</strong> – Logos, colors, typography, iconography.</li>
+                        <li><strong>Brand Guidelines</strong> – Usage rules for brand consistency.</li>
+                        <li><strong>Packaging & Stationery</strong> – Print and branded collateral.</li>
+                    </ul>
                 </div>
             </div>
             <div class="service-item">
                 <div class="image-wrapper"><img src="service2.png" alt="Service 2" class="service-image" height="250px">
                 </div>
                 <div class="service-content">
-                    <h3>Branding & Logo Design</h3>
-                    <p>We shape brands that stand out and stay remembered.
-                        From logos to complete visual identities, we craft branding that tells your story with clarity,
-                        character, and consistency</p>
+                    <h3>UI/UX Design & Redesign</h3>
+                    <ul class="text">
+                        <li><strong>Web & Mobile App Design</strong> – End-to-end user interface and experience design.
+                        </li>
+                        <li><strong>UX Audits</strong> – Identifying friction points and usability issues.</li>
+                        <li><strong>Responsive Design</strong> – Seamless experiences across all screen sizes.</li>
+                        <li><strong>Redesign Strategy</strong> – Improving existing products with user-first
+                            enhancements.</li>
+                    </ul>
                 </div>
             </div>
             <div class="service-item">
                 <div class="image-wrapper"><img src="service3.png" alt="Service 3" class="service-image" height="250px">
                 </div>
                 <div class="service-content">
-                    <h3>Creative Direction / Design Systems</h3>
-                    <p>We build design systems that grow with you.
-                        From style guides to reusable components, we create consistent, scalable design foundations for
-                        startups and digital products.</p>
+                    <h3>UX Consulting & Optimization</h3>
+                    <ul class="text">
+                        <li><strong>Heuristic Evaluations</strong> – Deep-dive audits based on UX best practices.</li>
+                        <li><strong>Product Strategy Workshops</strong> – Aligning design with business goals.</li>
+                        <li><strong>Design System Setup</strong> – Scalable, reusable components and style libraries.
+                        </li>
+                        <li><strong>Conversion Optimization</strong> – Data-driven improvements for better ROI.
+                        </li>
+                    </ul>
                 </div>
             </div>
             <!-- Repeat service-item -->
@@ -212,44 +224,44 @@
 
     <script src="script.js"></script>
     <script>
-    const tabletBreakpoint = 992; // Disable typing on ≤ 992px
-    const isSmallScreen = window.innerWidth <= tabletBreakpoint;
+        const tabletBreakpoint = 992; // Disable typing on ≤ 992px
+        const isSmallScreen = window.innerWidth <= tabletBreakpoint;
 
-    const text = isSmallScreen
-        ? 'Undo the Noise.<span class="line-break">Design What Matters.</span>'
-        : 'Undo the Noise. Design What Matters.';
+        const text = isSmallScreen
+            ? 'Undo the Noise.<span class="line-break">Design What Matters.</span>'
+            : 'Undo the Noise. Design What Matters.';
 
-    const el = document.getElementById("typing-text");
+        const el = document.getElementById("typing-text");
 
-    if (isSmallScreen) {
-        // No typing animation on tablet or mobile
-        el.classList.remove('typing');
-        el.innerHTML = text;
-    } else {
-        // Typing animation for desktop only
-        let i = 0;
-        const speed = 150;
+        if (isSmallScreen) {
+            // No typing animation on tablet or mobile
+            el.classList.remove('typing');
+            el.innerHTML = text;
+        } else {
+            // Typing animation for desktop only
+            let i = 0;
+            const speed = 150;
 
-        function typeWriter() {
-            if (i < text.length) {
-                if (text.substring(i, i + 6) === "<span") {
-                    const spanEnd = text.indexOf("</span>", i) + 7;
-                    el.innerHTML += text.substring(i, spanEnd);
-                    i = spanEnd;
+            function typeWriter() {
+                if (i < text.length) {
+                    if (text.substring(i, i + 6) === "<span") {
+                        const spanEnd = text.indexOf("</span>", i) + 7;
+                        el.innerHTML += text.substring(i, spanEnd);
+                        i = spanEnd;
+                    } else {
+                        el.innerHTML += text.charAt(i);
+                        i++;
+                    }
+                    setTimeout(typeWriter, speed);
                 } else {
-                    el.innerHTML += text.charAt(i);
-                    i++;
+                    el.classList.remove('typing');
                 }
-                setTimeout(typeWriter, speed);
-            } else {
-                el.classList.remove('typing');
             }
-        }
 
-        el.classList.add('typing');
-        typeWriter();
-    }
-</script>
+            el.classList.add('typing');
+            typeWriter();
+        }
+    </script>
 
 
 
