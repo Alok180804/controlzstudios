@@ -971,7 +971,6 @@ html {
     display: flex;
     text-decoration: none;
     color: inherit;
-    flex-direction: column;
     width: 100%;
     color: #333;
 }
@@ -980,6 +979,17 @@ html {
     color: #111;
     text-decoration: underline;
 }
+
+.arrow {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-left: 8px;
+}
+
+.blog-item a:hover .arrow {
+  opacity: 1;
+}
+
 
 .blog-image {
     width: 280px;
@@ -1215,7 +1225,7 @@ html {
 
 
 .blog-content-ind {
-  padding: 100px 20px 60px;
+  padding: 100px 20px 10px;
   background-color: #f8f8f8;
   background-image:
     linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
