@@ -783,7 +783,7 @@ body {
         justify-content: center;
         align-items: center;
         padding: 30px 10px;
-        ;
+        
     }
 
     .footer-logo {
@@ -1164,6 +1164,10 @@ html {
         flex: 0 0 280px;
     }
 
+    .blog-item a{
+        margin: 1rem 0rem;
+    }
+
     .blog-content h3 {
         font-size: 1.2rem;
     }
@@ -1174,7 +1178,6 @@ html {
 
     .blog-meta {
         font-size: 0.8rem;
-        margin-top: 1rem;
     }
 }
 
