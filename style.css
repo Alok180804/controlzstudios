@@ -933,18 +933,34 @@ html {
 }
 
 .blog-grid {
-    display: flex;
-    gap: 2rem;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding-bottom: 10px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
 }
 
+/* Scrollbar Styling for WebKit browsers (Chrome, Safari, Edge) */
 .blog-grid::-webkit-scrollbar {
-    display: none;
+  height: 6px;
 }
+
+.blog-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.blog-grid::-webkit-scrollbar-thumb {
+  background-color: rgba(50, 50, 50, 0.4); /* dark pill */
+  border-radius: 999px;
+  width: 24px;
+}
+
+/* Firefox */
+.blog-grid {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(50, 50, 50, 0.4) transparent;
+}
+
 
 .blog-item {
     background: #fff;
@@ -1303,3 +1319,5 @@ html {
 .blog-post-container a:hover{
     text-decoration: underline;
 }
+
+
